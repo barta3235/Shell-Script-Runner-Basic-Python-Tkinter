@@ -8,10 +8,6 @@ class Application:
         self.mainWindow=tkinter.Tk()
 
 
-        # creating instance of the other class
-        self.shell_runner = Shell_runner()
-
-
         self.mainWindow.geometry("800x500")
         self.mainWindow.title("Shell Script Runner")
 
@@ -31,6 +27,14 @@ class Application:
         # Check box
         self.check = tkinter.Checkbutton(self.mainWindow, text='Yes, run the script', font=('Arial', 12), variable=self.checkSate)
         self.check.pack(padx=10, pady=10)
+
+        # text container to show output
+        self.output_text = tkinter.Text(self.mainWindow, height=20, width=100)
+        self.output_text.pack(padx=15, pady=20)
+
+        # creating instance of the other class
+        self.shell_runner = Shell_runner(self.output_text)
+
 
         # Opening the window
         self.mainWindow.mainloop()
