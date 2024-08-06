@@ -30,18 +30,22 @@ class Application:
         self.check.pack(padx=10, pady=10)
 
         # text container to show output
-        self.output_text = tkinter.Text(self.mainWindow, height=20, width=100)
-        self.output_text.pack(padx=15, pady=20)
+        # self.output_text = tkinter.Text(self.mainWindow, height=20, width=100)
+        # self.output_text.pack(padx=15, pady=20)
 
         # creating instance of the other class
-        self.shell_runner = Shell_runner(self.output_text)
+
+        # for output text
+        # self.shell_runner = Shell_runner(self.output_text)
+
+        self.shell_runner = Shell_runner(self)
 
 
         # Opening the window
         self.mainWindow.mainloop()
 
-    # run script
 
+    # run script
     def run_command(self,checker):
         if checker == 0:
             messagebox.showwarning(title="Warning", message='Please check the box to run shell scripts')
